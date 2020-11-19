@@ -1,0 +1,54 @@
+﻿@*@model IEnumerable<ReservationProjectMvc.Models.TrainInfo>*@
+
+@{
+    ViewBag.Title = "Search Result";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2>Search Result</h2>
+<center>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Train Name</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Seats Available</th>
+            <th>Flight Time</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in @ViewBag.ss)
+        {
+            <tr>
+                <td>
+                    @{ 
+                        int ti = int.Parse(@item.TrainId.ToString());
+                        var dd = new ReservationProjectMvc.Models.ContextCS();
+                        var tname = dd.TrainInfos.Where(a => a.TrainId == ti).FirstOrDefault();
+                        @tname.TrainName
+                    }
+                </td>
+                <td>@item.ResFrom</td>
+                <td>@item.ResTo</td>
+                <td>@item.TrainSeat</td>
+                <td>@item.DepTime</td>
+                <td>@item.ResTicketPrice</td>
+                <td>
+                    @*Session["UserID"] == null*@
+                    @if (User.Identity.IsAuthenticated == false)
+                    {
+                        <a href="@Url.Action("AccLogin","Account")" class="btn btn-success">Please login for Booking</a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("Booking","BookingInfoes", new { @fid = @item.ResId})" class="btn btn-success">Book Ticket Now</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+    </center>

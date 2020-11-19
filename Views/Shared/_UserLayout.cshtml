@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>@ViewBag.Title</title>
+    <!-- css files -->
+    <link href="~/Tmp/userLayout/css/bootstrap.css" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
+    <link href="~/Tmp/userLayout/css/style.css" rel='stylesheet' type='text/css' /><!-- custom css -->
+    <link href="~/Tmp/userLayout/css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
+    <!-- //css files -->
+    <link href="~/Tmp/userLayout/css/css_slider.css" type="text/css" rel="stylesheet" media="all">
+
+
+    <!-- //js files -->
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+    <div>
+        <!-- header -->
+        <header>
+            <div class="container">
+                <!-- nav -->
+                <nav class="py-md-4 py-3 d-lg-flex">
+                    <div id="logo">
+                        <h1> <a href="index.html">Train Journey</a></h1>
+                    </div>
+                    <label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
+                    <input type="checkbox" id="drop" />
+                    <ul class="menu mt-lg-3 ml-auto">
+                        <li class="active"><a href="/BookingInfoes/Index">Home</a></li>
+                        <li class=""><a href="#">About Us</a></li>
+                        <li class="mr-2"><a href="#">Contact</a></li>
+                        <li class=""><span><span class="fa fa-phone"></span> +880 1935 458 011</span></li>
+                        @if (User.Identity.IsAuthenticated == true)
+                        {
+                            <li class="btn btn-primary"><a href="/account/logout">Logout</a></li>
+                        } 
+                        else
+                        {
+                            <li class="btn btn-info"><a href="/account/AccLogin">Login</a></li>
+                        }
+                    </ul>
+                </nav>
+                <!-- //nav -->
+            </div>
+        </header>
+        <!-- //header -->
+        <!-- banner -->
+        <section class="banner_w3lspvt" id="home">
+            <div class="csslider infinity" id="slider1">
+                <input type="radio" name="slides" checked="checked" id="slides_1" />
+                <input type="radio" name="slides" id="slides_2" />
+                <input type="radio" name="slides" id="slides_3" />
+                <input type="radio" name="slides" id="slides_4" />
+                <ul>
+                    <li>
+                        <div class="banner-top">
+                            <div class="overlay">
+                                <div class="container">
+                                    <div class="w3layouts-banner-info">
+                                        <h3 class="text-wh"> Trip Now Exceptional  <span>Adventure</span></h3>
+                                        <!-- <h4 class="text-wh"> vestibulum consequat. Curabitur mauris justo</h4>
+                                    <a href="about.html" class="button-style mt-4">Read More</a> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="banner-top1">
+                            <div class="overlay">
+                                <div class="container">
+                                    <div class="w3layouts-banner-info">
+                                        <h3 class="text-wh"> Trip Now Exceptional  <span>Adventure</span></h3>
+                                        <!-- <h4 class="text-wh"> vestibulum consequat. Curabitur mauris justo</h4>
+                                    <a href="about.html" class="button-style mt-4">Read More</a> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="banner-top2">
+                            <div class="overlay">
+                                <div class="container">
+                                    <div class="w3layouts-banner-info">
+                                        <h3 class="text-wh"> Trip Now Exceptional  <span>Adventure</span></h3>
+                                        <!-- <h4 class="text-wh"> vestibulum consequat. Curabitur mauris justo</h4>
+                                    <a href="about.html" class="button-style mt-4">Read More</a> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="banner-top3">
+                            <div class="overlay">
+                                <div class="container">
+                                    <div class="w3layouts-banner-info">
+                                        <h3 class="text-wh"> Trip Now Exceptional  <span>Adventure</span></h3>
+                                        <!-- <h4 class="text-wh"> vestibulum consequat. Curabitur mauris justo</h4>
+                                    <a href="about.html" class="button-style mt-4">Read More</a> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="arrows">
+                    <label for="slides_1"></label>
+                    <label for="slides_2"></label>
+                    <label for="slides_3"></label>
+                    <label for="slides_4"></label>
+                </div>
+            </div>
+        </section>
+        <!-- //banner -->
+
+        @RenderBody()
+    </div>
+</body>
+</html>

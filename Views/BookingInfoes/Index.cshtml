@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ReservationProjectMvc.Models.TblTicketReserve>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+@if (User.Identity.IsAuthenticated == true)
+{
+    <div class="text-center bg-dark text-white m-3">
+        You are logged in as @User.Identity.Name
+    </div>
+}
+
+
+
+<center><h2 class="m-3">Railway Ticket Booking</h2></center>
+
+@{Html.BeginForm("Search", "BookingInfoes", "Index", FormMethod.Post);
+    <center>
+        <table>
+            <tr>
+                <th>From </th>
+                <th>To </th>
+                <th>Date </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <datalist id="rcity">
+                        @foreach (var item in @ViewBag.dcity) 
+                        {
+                            <option>@item</option>
+                        }
+                    </datalist>
+                    <input type="text" name="cityfrom" class="city1" placeholder="Type Departure City" required="" list="rcity" />
+                </td>
+                <td>
+                    <datalist id="acity">
+                        @foreach (var item in @ViewBag.acity)
+                        {
+                            <option>@item</option>
+                        }
+                    </datalist>
+                    <input type="text" name="cityto" class="city2" placeholder="Type Destination City" required="" list="acity" />
+                </td>
+                <td> 
+                    <input type="date" name="date1" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required=""/>
+                </td>
+            </tr>
+
+        </table>
+    </center>
+
+
+            <div class="clear"></div>
+            <input type="submit" value="Search Trains" class="btn btn-block btn-primary"/>
+        }
