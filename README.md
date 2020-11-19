@@ -1,6 +1,5 @@
 Installation Process is below
 =
-It's basically a reservation base system implemented with the basic and the advanced Authentication and Authorization system using Identity.
 This application is created targeting mainly 3 types of users: 
   i)    admin
   ii)   manager
